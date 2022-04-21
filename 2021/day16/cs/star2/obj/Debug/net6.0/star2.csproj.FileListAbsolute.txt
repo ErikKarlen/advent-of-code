@@ -1,0 +1,15 @@
+/home/erikk/other/advent21/erikk/day16/cs/star2/bin/Debug/net6.0/star2
+/home/erikk/other/advent21/erikk/day16/cs/star2/bin/Debug/net6.0/star2.deps.json
+/home/erikk/other/advent21/erikk/day16/cs/star2/bin/Debug/net6.0/star2.runtimeconfig.json
+/home/erikk/other/advent21/erikk/day16/cs/star2/bin/Debug/net6.0/star2.dll
+/home/erikk/other/advent21/erikk/day16/cs/star2/bin/Debug/net6.0/ref/star2.dll
+/home/erikk/other/advent21/erikk/day16/cs/star2/bin/Debug/net6.0/star2.pdb
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.csproj.AssemblyReference.cache
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.GeneratedMSBuildEditorConfig.editorconfig
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.AssemblyInfoInputs.cache
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.AssemblyInfo.cs
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.csproj.CoreCompileInputs.cache
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.dll
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/ref/star2.dll
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.pdb
+/home/erikk/other/advent21/erikk/day16/cs/star2/obj/Debug/net6.0/star2.genruntimeconfig.cache
