@@ -11,6 +11,7 @@
             "program": "${fileDirname}/star1.exe",
             "args": ["${fileDirname}/../test_input.txt"],
             "cwd": "${fileDirname}",
+            "preLaunchTask": "${defaultBuildTask}",
         },
         {
             "name": "Star 1",
@@ -19,6 +20,7 @@
             "program": "${fileDirname}/star1.exe",
             "args": ["${fileDirname}/../input.txt"],
             "cwd": "${fileDirname}",
+            "preLaunchTask": "${defaultBuildTask}",
         },
         {
             "name": "Star 2 Test",
@@ -27,6 +29,7 @@
             "program": "${fileDirname}/star2.exe",
             "args": ["${fileDirname}/../test_input.txt"],
             "cwd": "${fileDirname}",
+            "preLaunchTask": "${defaultBuildTask}",
         },
         {
             "name": "Star 2",
@@ -35,6 +38,7 @@
             "program": "${fileDirname}/star2.exe",
             "args": ["${fileDirname}/../input.txt"],
             "cwd": "${fileDirname}",
+            "preLaunchTask": "${defaultBuildTask}",
         }
     ]
 }
