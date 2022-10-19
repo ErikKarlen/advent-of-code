@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Star 1 Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/star1.exe",
+            "args": ["${fileDirname}/../test_input.txt"],
+            "cwd": "${fileDirname}",
+        },
+        {
+            "name": "Star 1",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/star1.exe",
+            "args": ["${fileDirname}/../input.txt"],
+            "cwd": "${fileDirname}",
+        },
+        {
+            "name": "Star 2 Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/star2.exe",
+            "args": ["${fileDirname}/../test_input.txt"],
+            "cwd": "${fileDirname}",
+        },
+        {
+            "name": "Star 2",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/star2.exe",
+            "args": ["${fileDirname}/../input.txt"],
+            "cwd": "${fileDirname}",
+        }
+    ]
+}
