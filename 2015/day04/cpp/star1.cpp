@@ -1,8 +1,10 @@
 #include <bitset>
+#include <cstdint>
 #include <cmath>
-#include <iostream>
-#include <iomanip>
 #include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -15,12 +17,12 @@
 //#define C 0x98badcfe
 //#define D 0x10325476
 
-static uint32_t S[] = {7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
+static unsigned int S[] = {7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
                        5,  9, 14, 20, 5,  9, 14, 20, 5,  9, 14, 20, 5,  9, 14, 20,
                        4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
                        6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21};
 
-static uint32_t K[] = {0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
+static unsigned int K[] = {0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
                        0xf57c0faf, 0x4787c62a, 0xa8304613, 0xfd469501,
                        0x698098d8, 0x8b44f7af, 0xffff5bb1, 0x895cd7be,
                        0x6b901122, 0xfd987193, 0xa679438e, 0x49b40821,
@@ -49,19 +51,22 @@ static uint32_t K[] = {0xd76aa478, 0xe8c7b756, 0x242070db, 0xc1bdceee,
 using namespace std;
 
 
-void printHex(const vector<unsigned char> & code)
+string hexString(const vector<unsigned char> & code)
 {
-        for (int i = 0; i < code.size(); ++i) {
+        stringstream ss;
+        for (long unsigned int i = 0; i < code.size(); ++i) {
                 if (i % 16 == 0) {
-                        cout << endl << "0x";
+                        ss << endl << "0x";
                 }
-                cout << " " << hex << setfill('0') << setw(2) << right << +code[i];
+                ss << " " << hex << setfill('0') << setw(2) << right << +code[i];
         }
-        cout << dec << endl;
+        ss << dec << endl;
+
+        return ss.str();
 }
 
 
-unsigned int rotateLeft(uint32_t x, uint32_t n){
+unsigned int rotateLeft(unsigned int x, unsigned int n){
 	return (x << n) | (x >> (32 - n));
 }
 
@@ -102,19 +107,14 @@ string calculateMD5(const string & message)
         };
         */
 
-        //unsigned int A = 0x01234567;
-        //unsigned int B = 0x89abcdef;
-        //unsigned int C = 0xfedcba98;
-        //unsigned int D = 0x76543210;
-
         vector<unsigned char> code;
-        for (const auto c : message) {
+        for (const auto & c : message) {
                 code.push_back(c);
         }
 
         code.push_back(1 << 7);
 
-        unsigned int padding = 56 - code.size() % 64;
+        unsigned int padding = 56 - code.size() % 56;
         for (i = 0; i < padding; ++i) {
                 code.push_back(0);
         }
@@ -131,43 +131,87 @@ string calculateMD5(const string & message)
                 code.push_back(0);
         }
 
+        cout << hexString(code) << endl;
 
-        unsigned int AA;
-        unsigned int BB;
-        unsigned int CC;
-        unsigned int DD;
+        //unsigned int A = 0x01234567;
+        //unsigned int B = 0x89abcdef;
+        //unsigned int C = 0xfedcba98;
+        //unsigned int D = 0x76543210;
+        unsigned int A = 0x67452301;
+        unsigned int B = 0xefcdab89;
+        unsigned int C = 0x98badcfe;
+        unsigned int D = 0x10325476;
 
 
-        for (i = 0; i < 64; ++i) {
-                unsigned int E;
-                unsigned int j;
-                if (0 <= i && i <= 15) {
-                        E = F(BB, CC, DD);
-                        j = i;
-                } else if (16 <= i && i <= 31) {
-                        E = G(BB, CC, DD);
-                        j = ((i * 5) + 1) % 16;
-                } else if (32 <= i <= 47) {
-                        E = H(BB, CC, DD);
-                        j = ((i * 3) + 5) % 16;
-                } else {
-                        E = I(BB, CC, DD);
-                        j = (i * 7) % 16;
+        for (long unsigned int block = 0; block < code.size(); block += 64) {
+                unsigned int AA = A;
+                unsigned int BB = B;
+                unsigned int CC = C;
+                unsigned int DD = D;
+                vector<unsigned char> input(code.begin() + block, code.begin() + block + 56);
+                for (i = 0; i < 56; i += 4) {
+                        unsigned char tmp = input[i + 3];
+                        input[i + 3] = input[i + 0];
+                        input[i + 0] = tmp;
+                        tmp = input[i + 2];
+                        input[i + 2] = input[i + 1];
+                        input[i + 1] = tmp;
+                }
+                messageSize = 8 * message.size();
+                input.push_back((unsigned char)(messageSize & 0x00000000FF000000));
+                input.push_back((unsigned char)(messageSize & 0x0000000000FF0000));
+                input.push_back((unsigned char)(messageSize & 0x000000000000FF00));
+                input.push_back((unsigned char)(messageSize & 0x00000000000000FF));
+                input.push_back((unsigned char)(messageSize & 0xFF00000000000000));
+                input.push_back((unsigned char)(messageSize & 0x00FF000000000000));
+                input.push_back((unsigned char)(messageSize & 0x0000FF0000000000));
+                input.push_back((unsigned char)(messageSize & 0x000000FF00000000));
+                for (i = 0; i < 64; ++i) {
+                        unsigned int E;
+                        unsigned int j;
+                        if (i <= 15) {
+                                E = F(BB, CC, DD);
+                                j = i;
+                        } else if (16 <= i && i <= 31) {
+                                E = G(BB, CC, DD);
+                                j = ((i * 5) + 1) % 16;
+                        } else if (32 <= i && i <= 47) {
+                                E = H(BB, CC, DD);
+                                j = ((i * 3) + 5) % 16;
+                        } else {
+                                E = I(BB, CC, DD);
+                                j = (i * 7) % 16;
+                        }
+
+                        unsigned int temp = DD;
+                        unsigned int inputInt = input[4 * j + 3] + (input[4 * j + 2] << 8) + (input[4 * j + 1] << 16) + (input[4 * j + 0] << 24);
+                        DD = CC;
+                        CC = BB;
+                        BB = BB + rotateLeft(AA + E + K[i] + inputInt, S[i]);
+                        AA = temp;
                 }
 
-                unsigned int temp = DD;
-                DD = CC;
-                CC = BB;
-                BB = BB + rotateLeft(AA + E + K[i] + input[j], S[i])
-                AA = temp;
+                A += AA;
+                B += BB;
+                C += CC;
+                D += DD;
         }
 
-        A += AA;
+        vector<unsigned char> digest = {
+                (unsigned char)(A & 0x000000FF), (unsigned char)((A & 0x0000FF00) >> 8), (unsigned char)((A & 0x00FF0000) >> 16), (unsigned char)((A & 0xFF000000) >> 24),
+                (unsigned char)(B & 0x000000FF), (unsigned char)((B & 0x0000FF00) >> 8), (unsigned char)((B & 0x00FF0000) >> 16), (unsigned char)((B & 0xFF000000) >> 24),
+                (unsigned char)(C & 0x000000FF), (unsigned char)((C & 0x0000FF00) >> 8), (unsigned char)((C & 0x00FF0000) >> 16), (unsigned char)((C & 0xFF000000) >> 24),
+                (unsigned char)(D & 0x000000FF), (unsigned char)((D & 0x0000FF00) >> 8), (unsigned char)((D & 0x00FF0000) >> 16), (unsigned char)((D & 0xFF000000) >> 24),
+        };
 
-        printHex(code);
+        //cout << digest.size() << endl;
+        //for (const auto & c : digest) {
+        //        cout << (int)c << endl;
+        //}
+        cout << hexString(digest) << endl;
 
 
-        return message;
+        return hexString(digest);
 }
 
 
@@ -177,15 +221,21 @@ int main(int argc, char *argv[])
         string line;
         string digest;
 
+        (void)argc;
+
         inFile.open(argv[1]);
 
         getline(inFile, line);
         getline(inFile, line);
-        getline(inFile, line);
+        //getline(inFile, line);
 
+        for (int i = 0; i < 10000000; ++i) {
+                cout << line << "0"
+
+        }
         digest = calculateMD5(line);
 
-        cout << "The MD5 hash which, in hexadecimal, starts with at least five zeroes is "
+        cout << "The lower number that can be combined with the secret key to make and MD5 has starting with five zeroes is "
                 << digest << "." << endl;
 
         return 0;
