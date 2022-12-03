@@ -234,13 +234,17 @@ int main(int argc, char *argv[])
         //getline(inFile, line);
         //getline(inFile, line);
 
-        for (i = 1; i < 10000000; ++i) {
+        for (i = 1; i < 100000000; ++i) {
                 stringstream ss;
                 ss << line << i;
                 digest = calculateMD5(ss.str());
                 //cout << ss.str() << ": " << digest << endl;
                 string firstFive(digest.begin(), digest.begin() + 5);
                 if (firstFive == "00000") {
+                        cout << ss.str() << ": " << digest << endl;
+                }
+                string firstSix(digest.begin(), digest.begin() + 6);
+                if (firstSix == "000000") {
                         break;
                 }
         }
