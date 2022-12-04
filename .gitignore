@@ -1,1 +1,9 @@
-*.exe
+# Executables
+**/star1
+**/star2
+**/star1.exe
+**/star2.exe
+
+# Input Files
+**/input.txt
+**/test_input*.txt
