@@ -7,6 +7,8 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+        (void)argc;
+        (void)argv;
         int answer = 0;
         ifstream inFile;
 
