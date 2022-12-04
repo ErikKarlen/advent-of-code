@@ -7,3 +7,6 @@
 # Input Files
 **/input.txt
 **/test_input*.txt
+
+# VS Code
+.vscode/cache
