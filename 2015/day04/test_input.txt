@@ -1,3 +1,0 @@
-abcdef
-pqrstuv
-Hello, world!
