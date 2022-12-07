@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "atomic": "cpp",
+        "*.tcc": "cpp",
+        "compare": "cpp",
+        "numeric": "cpp",
+        "sstream": "cpp",
+        "cmath": "cpp",
+        "bitset": "cpp",
+        "fstream": "cpp",
+        "ostream": "cpp",
+        "ratio": "cpp",
+        "streambuf": "cpp",
+        "typeinfo": "cpp",
+        "iostream": "cpp"
+    }
+}
