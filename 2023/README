@@ -1,0 +1,17 @@
+Erik Karlen's solutions to Advent of Code 2023
+
+
+To run the Python solutions use Python 3+ and the input file as an argument.
+Example:
+        # python3 day01/python/star1.py day01/input.txt
+
+To run the C solutions, compile using e.g. GNU compiler and run the binary.
+Example:
+        # g++ -o day01/c/star1 day01/c/star1.c
+        # ./day01/c/star1 day01/input.txt
+
+To run the C++ solutions, compile using e.g. GNU compiler and run the binary.
+Example:
+        # g++ -o day01/cpp/star1 day01/cpp/star1.c
+        # ./day01/cpp/star1 day01/input.txt
+
