@@ -5,38 +5,68 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Star 1 Test",
+            "name": "Python: Star",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+            "args":[
+                "${fileDirname}/../input.txt"
+            ]
+        },
+        {
+            "name": "Python: Star Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+            "args":[
+                "${fileDirname}/../test_input.txt"
+            ]
+        },
+        {
+            "name": "Cpp: Star 1 Test",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/star1.exe",
-            "args": ["${fileDirname}/../test_input.txt"],
+            "args": [
+                "${fileDirname}/../test_input.txt"
+            ],
             "cwd": "${fileDirname}",
             "preLaunchTask": "${defaultBuildTask}",
         },
         {
-            "name": "Star 1",
+            "name": "Cpp: Star 1",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/star1.exe",
-            "args": ["${fileDirname}/../input.txt"],
+            "args": [
+                "${fileDirname}/../input.txt"
+            ],
             "cwd": "${fileDirname}",
             "preLaunchTask": "${defaultBuildTask}",
         },
         {
-            "name": "Star 2 Test",
+            "name": "Cpp: Star 2 Test",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/star2.exe",
-            "args": ["${fileDirname}/../test_input.txt"],
+            "args": [
+                "${fileDirname}/../test_input.txt"
+            ],
             "cwd": "${fileDirname}",
             "preLaunchTask": "${defaultBuildTask}",
         },
         {
-            "name": "Star 2",
+            "name": "Cpp: Star 2",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/star2.exe",
-            "args": ["${fileDirname}/../input.txt"],
+            "args": [
+                "${fileDirname}/../input.txt"
+            ],
             "cwd": "${fileDirname}",
             "preLaunchTask": "${defaultBuildTask}",
         }
