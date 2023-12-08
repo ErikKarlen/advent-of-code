@@ -36,26 +36,12 @@ class Hand:
     def compare(self, other):
         self_counts = sorted(self.card_counts.values())
         other_counts = sorted(other.card_counts.values())
-        
-        if len(self_counts) == 1 and len(other_counts) == 1:
-            return self.second_compare(other)
-        if self_counts[-1] != other_counts[-1]:
-            return other_counts[-1] - self_counts[-1]
 
-        if len(self_counts) == 2 and len(other_counts) == 2:
-            return self.second_compare(other)
-        if self_counts[-2] != other_counts[-2]:
-            return other_counts[-2] - self_counts[-2]
-
-        if len(self_counts) == 3 and len(other_counts) == 3:
-            return self.second_compare(other)
-        if self_counts[-3] != other_counts[-3]:
-            return other_counts[-3] - self_counts[-3]
-
-        if len(self_counts) == 4 and len(other_counts) == 4:
-            return self.second_compare(other)
-        if self_counts[-4] != other_counts[-4]:
-            return other_counts[-4] - self_counts[-4]
+        for i in range(1, 5):
+            if len(self_counts) == i and len(other_counts) == i:
+                return self.second_compare(other)
+            if self_counts[-i] != other_counts[-i]:
+                return other_counts[-i] - self_counts[-i]
 
         return self.second_compare(other)
 
