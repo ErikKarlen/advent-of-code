@@ -18,4 +18,8 @@
         "--manifest-path=${fileDirname}/../Cargo.toml"
     ],
     "rust-analyzer.cargo.buildScripts.overrideCommand": null,
+    "rust-analyzer.linkedProjects": [
+        "./2024/day01/rust/star1/Cargo.toml"
+        "./2024/day01/rust/star2/Cargo.toml"
+    ],
 }
