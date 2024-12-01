@@ -69,6 +69,50 @@
             ],
             "cwd": "${fileDirname}",
             "preLaunchTask": "${defaultBuildTask}",
-        }
+        },
+        {
+            "name": "Rust: Star 1 Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../target/debug/star1",
+            "args": [
+                "${fileDirname}/../../../test_input.txt"
+            ],
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "Rust: cargo build Star",
+        },
+        {
+            "name": "Rust: Star 1",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../target/debug/star1",
+            "args": [
+                "${fileDirname}/../../../input.txt"
+            ],
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "Rust: cargo build Star",
+        },
+        {
+            "name": "Rust: Star 2 Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../target/debug/star2",
+            "args": [
+                "${fileDirname}/../../../test_input.txt"
+            ],
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "Rust: cargo build Star",
+        },
+        {
+            "name": "Rust: Star 2",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../target/debug/star2",
+            "args": [
+                "${fileDirname}/../../../input.txt"
+            ],
+            "cwd": "${fileDirname}",
+            "preLaunchTask": "Rust: cargo build Star",
+        },
     ]
 }
