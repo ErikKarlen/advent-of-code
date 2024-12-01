@@ -1,8 +1,12 @@
 # Executables
-**/star1
-**/star2
-**/star1.exe
-**/star2.exe
+**/c/star1
+**/c/star2
+**/cpp/star1
+**/cpp/star2
+**/cpp/star1.exe
+**/cpp/star2.exe
+**/cs/star1.exe
+**/cs/star2.exe
 
 # Input Files
 **/input.txt
@@ -10,3 +14,8 @@
 
 # VS Code
 .vscode/cache
+
+# Rust
+**/rust/star*/debug
+**/rust/star*/target
+**/rust/star*/Cargo.lock
