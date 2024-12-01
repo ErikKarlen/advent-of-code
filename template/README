@@ -1,4 +1,4 @@
-Erik Karlén's solutions to Advent of Code <enter year>
+Erik Karlen's solutions to Advent of Code <enter year>
 
 
 To run the Python solutions use Python 3+ and the input file as an argument.
@@ -15,3 +15,6 @@ Example:
         # g++ -o day01/cpp/star1 day01/cpp/star1.c
         # ./day01/cpp/star1 day01/input.txt
 
+To run the Rust solutions, use cargo run and the input file as an argument.
+Example:
+        # cargo run --manifest-path day01/rust/star1/Cargo.toml day01/input.txt
