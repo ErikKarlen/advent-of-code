@@ -19,7 +19,7 @@
     ],
     "rust-analyzer.cargo.buildScripts.overrideCommand": null,
     "rust-analyzer.linkedProjects": [
-        "./2024/day10/rust/star1/Cargo.toml",
-        "./2024/day10/rust/star2/Cargo.toml",
+        "./2024/day11/rust/star1/Cargo.toml",
+        "./2024/day11/rust/star2/Cargo.toml",
     ],
 }
