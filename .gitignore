@@ -19,3 +19,6 @@
 **/rust/star*/debug
 **/rust/star*/target
 **/rust/star*/Cargo.lock
+
+# BQN
+**/bqn/strings.bqn
